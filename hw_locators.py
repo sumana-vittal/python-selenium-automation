@@ -9,10 +9,7 @@ driver_path = ChromeDriverManager().install()
 
 # Create a new chrome browser instance
 service = Service(driver_path)
-#chrome_options = webdriver.ChromeOptions()
-#chrome_options.add_argument("--incognito")
-
-driver = webdriver.Chrome(service=service)# options=chrome_options)
+driver = webdriver.Chrome(service=service)
 driver.maximize_window()
 
 # open the url
