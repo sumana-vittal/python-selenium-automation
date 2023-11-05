@@ -54,16 +54,11 @@ def click_cart_checkout(context):
     context.driver.find_element(By.XPATH, "//a[text()='View cart & check out']").click()
 
 
-expected_text = '1 item'
-
-
 @then('Verify cart has individual cart items and the total price')
 def verify_cart_item(context):
-    result_text = (context.driver.find_element(By.XPATH, "//span[@class='styles__CartSummarySpan-sc-odscpb-3 jaXVgU']").
+    expected_text = '1 item'
+    result_text = (context.driver.find_element(By.CSS_SELECTOR, "span[class*='styles__CartSummarySpan']").
                    text)
     assert expected_text in result_text, f"Error: Expected text {expected_text} is not {result_text}."
-
-
-
 
 
