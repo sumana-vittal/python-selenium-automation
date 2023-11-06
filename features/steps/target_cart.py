@@ -3,11 +3,6 @@ from behave import given, when, then
 from time import sleep
 
 
-@given('Open target home page')
-def open_home_page(context):
-    context.driver.get('https://www.target.com/')
-
-
 @when('Click on the Cart icon')
 def click_on_cart(context):
     context.driver.find_element(By.XPATH, "//a[@data-test='@web/CartLink']").click()
