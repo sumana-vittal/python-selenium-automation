@@ -6,3 +6,5 @@ Feature: Testing cart features
     And   Select the item of your choice and click Add to cart
     And   From right side navigation menu, click on "View cart & check out"
     Then  Verify cart has single cart item
+
+

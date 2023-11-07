@@ -30,3 +30,4 @@ Feature:Test for Target Help UI
    Given Open target help page 'https://help.target.com/help'
     Then  Verify Target Help page is opened
     Then  Verify header 'Browse all Help pages'
+

@@ -23,3 +23,4 @@ def verify_benefit_box(context,number):
     benefit_webelements = context.driver.find_elements(By.CSS_SELECTOR, "[class*='BenefitsGrid'] li")
     assert len(benefit_webelements) == int(number), (f"Error: Expected number of benefit boxes is {number}, but found "
                                                      f"{len(benefit_webelements)}")
+
