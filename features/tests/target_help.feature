@@ -24,11 +24,9 @@ Feature:Test for Target Help UI
   Scenario:User check for the Target Help block elements
     Given Open target help page 'https://help.target.com/help'
     Then  Verify Target Help page is opened
-    Then  Verify Target Help page is opened
-    And   Verify Help block has 3 elements
+    Then  Verify Help block has 3 elements
 
   Scenario:User check for the header 'Browse all Help pages'
    Given Open target help page 'https://help.target.com/help'
     Then  Verify Target Help page is opened
-    Then  Verify Target Help page is opened
-    And   Verify header 'Browse all Help pages'
+    Then  Verify header 'Browse all Help pages'

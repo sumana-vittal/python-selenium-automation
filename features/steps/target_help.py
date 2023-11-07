@@ -28,7 +28,7 @@ def verify_search_field(context):
 
 
 @then('Verify Search Button field')
-def verify_search_field(context):
+def verify_search_button(context):
     result = context.driver.find_element(By.CSS_SELECTOR, "[class='btn-sm search-btn']").is_displayed()
     assert result is True, f"Error: Missing Search Button Field!"
 
