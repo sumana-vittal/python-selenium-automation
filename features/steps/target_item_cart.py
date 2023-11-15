@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
+from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 
@@ -17,7 +18,11 @@ def search_product(context):
 @when('Select the item of your choice and click Add to cart')
 def add_to_cart(context):
     sleep(5)
-    context.driver.find_element(By.XPATH, "//button[@id='addToCartButtonOrTextIdFor13891751']").click()
+    # context.driver.wait.until(
+    #     EC.presence_of_element_located((By.CSS_SELECTOR, "[data-test='addToCartButton']")),
+    #     message="Element not visible to click!"
+    # )
+    context.driver.find_element(By.CSS_SELECTOR, "[data-test='addToCartButton']").click()
 
 
 @when('From right side navigation menu, click on "View cart & check out"')

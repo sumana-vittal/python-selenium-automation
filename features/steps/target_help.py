@@ -6,7 +6,7 @@ from time import sleep
 @given("Open target help page 'https://help.target.com/help'")
 def click_target_help(context):
     context.driver.get("https://help.target.com/help")
-    sleep(2)
+    #sleep(2)
 
 
 @then('Verify Target Help page is opened')

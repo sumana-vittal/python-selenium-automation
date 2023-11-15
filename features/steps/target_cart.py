@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 from behave import given, when, then
 from time import sleep
 
@@ -6,7 +7,8 @@ from time import sleep
 @when('Click on the Cart icon')
 def click_on_cart(context):
     context.driver.find_element(By.XPATH, "//a[@data-test='@web/CartLink']").click()
-    sleep(2)
+    #sleep(2)
+    #context.driver.wait.until(EC.url_contains("cart"), message="Cart page is not displayed!")
 
 
 @when('Search the product to add')
@@ -18,7 +20,11 @@ def search_product(context):
 @when('Select the product by clicking on Add to cart')
 def add_to_cart(context):
     sleep(5)
-    context.driver.find_element(By.XPATH, "//button[@id='addToCartButtonOrTextIdFor13891751']").click()
+    # context.driver.wait.until(
+    #     EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-test='addToCartButton']")),
+    #     message="Element not visible"
+    # )
+    context.driver.find_element(By.CSS_SELECTOR, "[data-test='addToCartButton']").click()
 
 
 @when('From right side navigation menu, click "View cart & check out"')

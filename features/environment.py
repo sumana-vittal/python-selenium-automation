@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 
 
@@ -13,7 +14,7 @@ def browser_init(context):
 
     context.driver.maximize_window()
 
-    context.driver.maximize_window()
+    context.driver.wait = WebDriverWait(context.driver, 15)
     context.driver.implicitly_wait(4)
 
 
