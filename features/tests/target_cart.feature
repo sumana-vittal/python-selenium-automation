@@ -9,6 +9,8 @@ Feature: Testing cart features
     Given Open target home page
     When  Search the product to add
     And   Select the product by clicking on Add to cart
+    And   Store product name
     And   From right side navigation menu, click "View cart & check out"
     Then  Verify cart has individual cart items and the total price
+    And   Verify cart has correct product
 

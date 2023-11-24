@@ -4,6 +4,9 @@ from behave import given, when, then
 from time import sleep
 
 
+SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "h4[class*='StyledHeading']")
+SEARCH_RESULT_TXT = (By.CSS_SELECTOR, "[data-test='cartItem-title']")
+
 @when('Click on the Cart icon')
 def click_on_cart(context):
     context.driver.find_element(By.XPATH, "//a[@data-test='@web/CartLink']").click()
@@ -27,9 +30,25 @@ def add_to_cart(context):
     context.driver.find_element(By.CSS_SELECTOR, "[data-test='addToCartButton']").click()
 
 
+@when('Store product name')
+def store_product_name(context):
+    context.driver.wait.until(
+        EC.visibility_of_element_located(SIDE_NAV_PRODUCT_NAME),
+        message='Product name not shown in side navigation'
+    )
+    context.product_name = context.driver.find_element(*SIDE_NAV_PRODUCT_NAME).text
+
+
 @when('From right side navigation menu, click "View cart & check out"')
 def click_cart_checkout(context):
     context.driver.find_element(By.XPATH, "//a[text()='View cart & check out']").click()
+
+
+@then('Verify cart has correct product')
+def verify_search(context):
+    actual_text = context.driver.find_element(*SEARCH_RESULT_TXT).text
+    assert context.product_name in actual_text, \
+        f"Expected text '{context.product_name}' not in actual '{actual_text}'"
 
 
 @then('Verify cart has individual cart items and the total price')
